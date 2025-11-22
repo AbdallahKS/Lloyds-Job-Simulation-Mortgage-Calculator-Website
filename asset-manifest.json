@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/static/css/main.046fd4c1.css",
+    "main.js": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/static/js/main.a206d7c5.js",
+    "static/js/453.f7c26d41.chunk.js": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/static/js/453.f7c26d41.chunk.js",
+    "index.html": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/index.html",
+    "main.046fd4c1.css.map": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/static/css/main.046fd4c1.css.map",
+    "main.a206d7c5.js.map": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/static/js/main.a206d7c5.js.map",
+    "453.f7c26d41.chunk.js.map": "/Lloyds-Job-Simulation-Mortgage-Calculator-Website/static/js/453.f7c26d41.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.046fd4c1.css",
+    "static/js/main.a206d7c5.js"
+  ]
+}
