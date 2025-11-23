@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+🏦 Lloyds Mortgage Calculator (Technical Engineering Simulation)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fully interactive, multi-step mortgage calculator built as part of the Lloyds Banking Group Technical Engineering Virtual Experience.
+The tool allows users to model mortgage scenarios, compare interest rates, and understand repayment structures — all within a clean, responsive interface designed from user feedback.
 
-## Available Scripts
+🚀 Live Demo
 
-In the project directory, you can run:
+🔗 Try the calculator:
+https://abdallahks.github.io/Lloyds-Job-Simulation-Mortgage-Calculator-Website/
 
-### `npm start`
+📦 Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project was developed end-to-end using modern front-end technologies.
+Key objectives included:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Creating an intuitive mortgage estimation tool
+Improving user experience through feedback-driven redesign
+Implementing accurate mortgage calculation logic
+Ensuring accessibility, responsiveness, and real-world usability
+Demonstrating technical skills relevant to Lloyds’ Engineering teams
 
-### `npm test`
+🧩 Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Multi-step form: Guided 3-stage process (user details → mortgage options → results)
+Interactive interest-rate slider for real-time updates
+Scenario comparison tool: Compare two interest rates side-by-side
+Results breakdown: Monthly payment, total interest, total repayment, and LTV
+Repayment schedule snapshot (first & last months)
+Dark mode / light mode toggle with local storage persistence
+Auto-save progress: Form data and step number saved even after refresh
+Error validation: Prevents progressing without correct inputs
+Tooltips explaining key mortgage terminology
+Responsive design suitable for desktop and mobile
