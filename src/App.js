@@ -38,7 +38,12 @@ const EMPTY_FORM = {
 };
 
 // Build sample repayment schedule (first 3 + last 3 months)
-function buildScheduleSamples(loanAmount, interestRateNum, termYears, monthlyPayment) {
+function buildScheduleSamples(
+  loanAmount,
+  interestRateNum,
+  termYears,
+  monthlyPayment
+) {
   if (
     loanAmount <= 0 ||
     interestRateNum <= 0 ||
@@ -144,12 +149,9 @@ function App() {
   // Basic field validity checks (for inline errors)
   const propertyPriceValid =
     formData.propertyPrice === "" || propertyPriceNum > 0;
-  const depositValid =
-    formData.deposit === "" || depositNum >= 0;
-  const incomeValid =
-    formData.income === "" || incomeNum > 0;
-  const termValid =
-    formData.term === "" || termYears > 0;
+  const depositValid = formData.deposit === "" || depositNum >= 0;
+  const incomeValid = formData.income === "" || incomeNum > 0;
+  const termValid = formData.term === "" || termYears > 0;
   const interestRateValid =
     formData.interestRate === "" ||
     (interestRateNum > 0 && interestRateNum < 100);
@@ -169,9 +171,7 @@ function App() {
     termValid;
 
   const canGoToStep3 =
-    interestRateNum > 0 &&
-    interestRateNum < 100 &&
-    interestRateValid;
+    interestRateNum > 0 && interestRateNum < 100 && interestRateValid;
 
   // Calculation section – Scenario A
   const loanAmount =
@@ -362,12 +362,7 @@ function StepOneDetails({
   canGoToStep2,
   validity,
 }) {
-  const {
-    propertyPriceValid,
-    depositValid,
-    incomeValid,
-    termValid,
-  } = validity;
+  const { propertyPriceValid, depositValid, incomeValid, termValid } = validity;
 
   const showErrors =
     formData.propertyPrice ||
@@ -384,7 +379,11 @@ function StepOneDetails({
       </p>
 
       <div className="grid">
-        <div className={`field ${!propertyPriceValid && showErrors ? "error" : ""}`}>
+        <div
+          className={`field ${
+            !propertyPriceValid && showErrors ? "error" : ""
+          }`}
+        >
           <label>
             Property price (£)
             <InfoTip text="The total price of the property you want to buy." />
@@ -404,7 +403,9 @@ function StepOneDetails({
           )}
         </div>
 
-        <div className={`field ${!depositValid && showErrors ? "error" : ""}`}>
+        <div
+          className={`field ${!depositValid && showErrors ? "error" : ""}`}
+        >
           <label>
             Deposit (£)
             <InfoTip text="The amount you pay upfront towards the property. The mortgage covers the rest." />
@@ -424,7 +425,9 @@ function StepOneDetails({
           )}
         </div>
 
-        <div className={`field ${!incomeValid && showErrors ? "error" : ""}`}>
+        <div
+          className={`field ${!incomeValid && showErrors ? "error" : ""}`}
+        >
           <label>
             Annual income (£)
             <InfoTip text="Your yearly income before tax. Lenders use this to assess what you can afford." />
@@ -530,18 +533,54 @@ function StepTwoOptions({
         </div>
       </div>
 
-      <div className={`field ${!interestRateValid && showErrorMain ? "error" : ""}`}>
+      {/* MAIN INTEREST RATE – slider + number input */}
+      <div
+        className={`field ${
+          !interestRateValid && showErrorMain ? "error" : ""
+        }`}
+      >
         <label>
           Interest rate – Scenario A (%)
           <InfoTip text="The percentage charged on the mortgage each year. Higher rates mean higher monthly payments." />
         </label>
-        <input
-          type="text"
-          name="interestRate"
-          value={formData.interestRate}
-          onChange={handleChange}
-          placeholder="e.g. 4.5"
-        />
+
+        <div
+          style={{
+            display: "flex",
+            gap: "0.75rem",
+            alignItems: "center",
+          }}
+        >
+          {/* Slider control */}
+          <input
+            type="range"
+            name="interestRate"
+            min="0"
+            max="10"
+            step="0.1"
+            value={formData.interestRate || 0}
+            onChange={handleChange}
+            style={{ flex: 1 }}
+          />
+
+          {/* Exact numeric input */}
+          <input
+            type="number"
+            name="interestRate"
+            min="0"
+            max="100"
+            step="0.1"
+            value={formData.interestRate}
+            onChange={handleChange}
+            placeholder="4.5"
+            style={{ width: "5rem" }}
+          />
+        </div>
+
+        <p className="helper-text">
+          Use the slider to pick a rate (0–10%) or type an exact value.
+        </p>
+
         {!interestRateValid && showErrorMain && (
           <span className="field-error">
             Please enter a valid interest rate between 0 and 100.
@@ -549,7 +588,12 @@ function StepTwoOptions({
         )}
       </div>
 
-      <div className={`field ${!interestRateBValid && showErrorB ? "error" : ""}`}>
+      {/* OPTIONAL COMPARISON RATE – still text input */}
+      <div
+        className={`field ${
+          !interestRateBValid && showErrorB ? "error" : ""
+        }`}
+      >
         <label>
           Optional comparison rate – Scenario B (%)
           <InfoTip text="Add a second interest rate to compare monthly payments and total cost against Scenario A." />
@@ -585,7 +629,7 @@ function StepTwoOptions({
 
       {!canGoToStep3 && showErrorMain && (
         <p className="helper-text">
-          Please enter a valid interest rate to see your results.
+          Please choose a valid interest rate to see your results.
         </p>
       )}
 
@@ -621,9 +665,7 @@ function StepThreeResults({
 
   // For the stacked bar
   const totalForBar =
-    loanAmount > 0 && totalInterest > 0
-      ? loanAmount + totalInterest
-      : 0;
+    loanAmount > 0 && totalInterest > 0 ? loanAmount + totalInterest : 0;
   const principalPct =
     totalForBar > 0 ? (loanAmount / totalForBar) * 100 : 0;
   const interestPct =
@@ -695,8 +737,8 @@ function StepThreeResults({
           <h3>Scenario comparison</h3>
           <p>
             Comparing your main rate (
-            <strong>{formData.interestRate}%</strong>) with your comparison
-            rate (<strong>{formData.interestRateB}%</strong>).
+            <strong>{formData.interestRate}%</strong>) with your comparison rate{" "}
+            (<strong>{formData.interestRateB}%</strong>).
           </p>
           <div className="comparison-grid">
             <div className="comparison-col">
